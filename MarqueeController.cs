@@ -21,6 +21,7 @@ namespace EnkephalinClock
         private bool _isMarqueePlaying = false;
 
 
+
         private class ScheduledMarquee
         {
             public TimeSpan Time { get; set; }

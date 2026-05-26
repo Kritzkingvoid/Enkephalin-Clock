@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace EnkephalinClock
 {
@@ -47,6 +48,10 @@ namespace EnkephalinClock
         private Point startMouseScreenPoint;
         private Point startWindowLocation;
 
+        private BitmapImage _dayImage;
+        private BitmapImage _nightImage;
+        private bool _isNight;
+
         //Children of The City YEEEEEEEEEE, purely cosmetic, but I like it
         private bool _cityOpen = false;
         private bool _cityAnimating = false;
@@ -71,9 +76,19 @@ namespace EnkephalinClock
             LoadAllUserImages();
             Config.Load();
 
+            _dayImage = LoadBitmap("Day.png");
+            _nightImage = LoadBitmap("Night.png");
+
             MarqueeController = new MarqueeController(AnnounceContainer, MarqueeTextBlock, MarqueeContainer, MarqueeTransform);
 
-            CompositionTarget.Rendering += OnRender;
+            DispatcherTimer clockTimer = new DispatcherTimer();
+            clockTimer.Interval = TimeSpan.FromMilliseconds(50);
+            clockTimer.Tick += (s, e) =>
+            {
+                RenderClock();
+            };
+
+            clockTimer.Start();
 
             AnimateQualiCounter(true);
             MarqueeController.PlayWav(Config.IntroSound);
@@ -81,6 +96,23 @@ namespace EnkephalinClock
             MarqueeController.LoadMarqueeSchedule("schedule.txt");
             MarqueeController.StartScheduleWatcher();
 
+        }
+        private BitmapImage LoadBitmap(string name)
+        {
+            string filePath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "Images",
+                name);
+
+            BitmapImage bitmap = new BitmapImage();
+
+            bitmap.BeginInit();
+            bitmap.CacheOption = BitmapCacheOption.OnLoad;
+            bitmap.UriSource = new Uri(filePath, UriKind.Absolute);
+            bitmap.EndInit();
+            bitmap.Freeze();
+
+            return bitmap;
         }
         private void LoadAllUserImages()
         {
@@ -118,13 +150,7 @@ namespace EnkephalinClock
                 }
             }
         }
-        void OnRender(object sender, EventArgs e)
-        {
-            if (func == FuncMode.Clock)
-            {
-                RenderClock();
-            }
-        }
+     
 
         void RenderClock()
         {
@@ -192,32 +218,18 @@ namespace EnkephalinClock
         }
         private void UpdateDayNightImage(DateTime now)
         {
-            string imageName;
+            bool shouldNight = now.Hour >= 12;
 
-            if (now.Hour >= 12)
-            {
-                imageName = "Night.png";
-            }
-            else
-            {
-                imageName = "Day.png";
-            }
-
-            string filePath = Path.Combine( AppDomain.CurrentDomain.BaseDirectory,"Images",imageName);
-
-            if (!File.Exists(filePath))
+            if (shouldNight == _isNight)
             {
                 return;
             }
 
-            BitmapImage bitmap = new BitmapImage();
+            _isNight = shouldNight;
 
-            bitmap.BeginInit();
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.UriSource = new Uri(filePath, UriKind.Absolute);
-            bitmap.EndInit();
-
-            StatusDay.Source = bitmap;
+            StatusDay.Source = shouldNight
+                ? _nightImage
+                : _dayImage;
         }
         void StartDrain()
         {

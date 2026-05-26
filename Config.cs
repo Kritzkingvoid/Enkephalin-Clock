@@ -122,6 +122,7 @@ namespace EnkephalinClock
                     "AllowInterruptMarquee=false",  
                     "",
                     "WelcomeMessage=Welcome back, Manager",
+                    "",
                     "IntroSound=intro.wav",
                     "# Notification speed (80 -Default)",
                     "MarqueeSpeed=80"
