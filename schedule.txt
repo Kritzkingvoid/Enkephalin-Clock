@@ -1,0 +1,6 @@
+﻿[00:00]: Midnight reached : alert.wav
+[08:00]: Good morning Manager : alert.wav
+[12:30]: Lunch break : alert.wav
+[18:00]: Evening shift started : alert.wav
+[23:59]: Day ending : alert.wav
+[09:01]: Good morning Manager : alert.wav
