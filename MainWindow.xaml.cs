@@ -67,6 +67,7 @@ namespace EnkephalinClock
             Draining
         }
 
+
         private ClockState clockState = ClockState.Live;
 
         public MainWindow()
@@ -75,6 +76,16 @@ namespace EnkephalinClock
             InitializeComponent();
             LoadAllUserImages();
             Config.Load();
+            if (Config.CanResizeWindow)
+            {
+                this.ResizeMode = ResizeMode.CanResizeWithGrip;
+            }
+            else
+            {
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+            this.Width = Config.WindowWidth;
+            this.Height = Config.WindowHeight;
 
             _dayImage = LoadBitmap("Day.png");
             _nightImage = LoadBitmap("Night.png");

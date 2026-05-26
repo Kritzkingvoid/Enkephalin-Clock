@@ -12,11 +12,8 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip">
-
-    <Viewbox Stretch="Uniform">
-        <!-- Set a explicit Width/Height base layer here so the Viewbox knows its aspect ratio -->
+    <Viewbox  x:Name="MainView"  Stretch="Uniform">
         <Grid x:Name="TitleBar" Width="400" Height="255" ClipToBounds="False" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" MouseMove="TitleBar_MouseMove" MouseLeftButtonUp="TitleBar_MouseLeftButtonUp">
-            
             <Grid x:Name="AnnounceContainer" Height="51" Width="312" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Collapsed" Margin="40,70,0,0" ClipToBounds="False">
                 <Grid x:Name="ImageContainer"
                         Height="51"
@@ -143,8 +140,8 @@
 
                 </Image>
             </Grid>
+  
         </Grid>
-        
         
     </Viewbox>
 

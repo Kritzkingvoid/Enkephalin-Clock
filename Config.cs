@@ -16,6 +16,10 @@ namespace EnkephalinClock
         public static string IntroSound = "intro.wav";
         public static double MarqueeSpeed = 80;
 
+        public static int WindowWidth = 400;
+        public static int WindowHeight = 255;
+        public static bool CanResizeWindow = false;
+
         public static readonly string ConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.txt");
         public static void Load()
         {
@@ -84,12 +88,27 @@ namespace EnkephalinClock
                 case "introsound":
                     IntroSound = value;
                     break;
+                case "windowwidth":
+                    if (int.TryParse(value, out int w))
+                    {
+                        WindowWidth = w;
+                    }
+                    break;
 
+                case "windowheight":
+                    if (int.TryParse(value, out int h))
+                    {
+                        WindowHeight = h;
+                    }
+                    break;
                 case "marqueespeed":
                     if (double.TryParse(value, out double speed))
                     {
                         MarqueeSpeed = speed;
                     }
+                    break;
+                case "canresizewindow":
+                    CanResizeWindow = ParseBool(value);
                     break;
             }
         }
@@ -109,7 +128,7 @@ namespace EnkephalinClock
             List<string> lines =
                 new List<string>
                 {
-                    "@Kritzkingvoid | GitHub | EnkephalinClock",
+                   "@Kritzkingvoid | GitHub | EnkephalinClock",
                     "# Enkephalin Config | Delete this file and run to reset all settings to default",
                     "",
                     "UseRoman=true",
@@ -119,11 +138,19 @@ namespace EnkephalinClock
                     "UseMilitaryTime=false",
 
                     "# Currently if set to true, the notification will glitch and overlap be aware",
-                    "AllowInterruptMarquee=false",  
+                    "AllowInterruptMarquee=false",
                     "",
+
+                    "# Window settings",
+                    "CanResizeWindow=true",
+                    "WindowWidth=400",
+                    "WindowHeight=255",
+                    "",
+
                     "WelcomeMessage=Welcome back, Manager",
                     "",
                     "IntroSound=intro.wav",
+
                     "# Notification speed (80 -Default)",
                     "MarqueeSpeed=80"
                 };
