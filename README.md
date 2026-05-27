@@ -1,4 +1,4 @@
-## THE EXE IS ON THE RELEASE TAB ON THE RIGHT SIDE OF YOUR SCREEN YOU LOBOTOMIES
+## THE EXE IS ON THE RELEASES TAB ON THE RIGHT  &^$#@$#
 ## MANDATORY BLOATWARE FOR ALL LOBOTOMY CORP PERSONNEL
 
 >Do you want to be reminded of all the times you played Lobotomy Corporation during the pandemic? No need to answer because [CENSORED] you, I really like the aesthetic of Lobotomy Corp.
