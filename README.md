@@ -25,4 +25,11 @@
 
 "MILITARY TIME" - "MESSAGE" - "Wav file to play"
 
+## QA
+>**Linux Version?**
+>> Prob in the future? Unfortunately I only have 1 shitass laptop and I can't properly code and troubleshoot both version and I can't properly dual-boot or even VM a linux OS without tanking performance .
+
+>**X Feature?**
+>> Ongoing I'll add stuff If it fits.
+
 <img width="492" height="212" alt="Screenshot 2026-05-26 191155" src="https://github.com/user-attachments/assets/6854e9a8-7a16-4204-8310-37009144bd60" />
