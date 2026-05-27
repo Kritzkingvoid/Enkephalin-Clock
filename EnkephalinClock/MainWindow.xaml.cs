@@ -53,7 +53,7 @@ namespace EnkephalinClock
         private bool _isNight;
 
         //Children of The City YEEEEEEEEEE, purely cosmetic, but I like it
-        private bool _cityOpen = false;
+        private bool _cityOpen = true;
         private bool _cityAnimating = false;
 
         private FuncMode func = FuncMode.Clock;
