@@ -1,6 +1,6 @@
 ## MANDATORY BLOATWARE FOR ALL LOBOTOMY CORP PERSONNEL
 >Do you want to be reminded of all the times you played Lobotomy Corporation during the pandemic? No need to answer because [CENSORED] you, I really like the aesthetic of Lobotomy Corp.
->>Coded by a briliant mind of a fellow outskirt junkie in the middel of T-Corp during the late 2000's using advance software such as "WPF" and "C#" those were advance I think?
+>>Coded by a briliant mind of a fellow outskirt junkie in the middle of T-Corp during the late 2000's using advance software such as "WPF" and "C#" those were advance I think?
 <img width="1204" display="center" height="747" alt="Add a heading(97)" src="https://github.com/user-attachments/assets/bee16ce8-5b3b-4975-a5fc-eb6b0973bf17" />
 
 
